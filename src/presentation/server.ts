@@ -12,7 +12,12 @@ export class Server{
             ()=>{
                 // const date = new Date();
                 // console.log('5 second ', date);
-                new CheckService().execute('https://google.com');
+                new CheckService(
+                    //4.-realizamos la llamada de nuestra inyeccion
+                    ()=> console.log('success'),
+                    (error)=>console.log(error)
+                ).execute('https://google.com');
+                // new CheckService().execute('http://localhost:3000/posts');
             }
         );        
     }
