@@ -1,2 +1,12 @@
-export const name:string = 'Lee!!'
-console.log(name);
+import { Server } from "./presentation/server";
+
+
+//función anonima auto-invocable
+(async()=>{
+     main();
+})();
+
+function main(){
+    Server.start();
+}
+
