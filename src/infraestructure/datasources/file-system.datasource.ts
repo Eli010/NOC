@@ -5,7 +5,7 @@ import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 export class FileSystemDatasource implements LogDatasource {
     //creo mis path/archivos
     private readonly logPath ='log/';
-    private readonly allLogsPath ='log/logs-low.log';
+    private readonly allLogsPath ='log/logs-all.log';
     private readonly mediumLogsPath ='log/logs-medium.log';
     private readonly highLogsPath ='log/logs-high.log';
 
@@ -28,9 +28,23 @@ export class FileSystemDatasource implements LogDatasource {
         })
 
     }
+    //con esto grabaremos en nuestro sistema de log
+    async saveLog(newLog: LogEntity): Promise<void> {
+        //extramos por repetición
+        const logAsJson = `${JSON.stringify(newLog)} \n`
 
-    saveLog(log: LogEntity): Promise<void> {
-        throw new Error("Method not implemented.");
+        // appendFileSync = nos ayuda a añadir una linea al final del archivo 
+        fs.appendFileSync(this.allLogsPath,logAsJson );
+
+        //si el nivel es log no hacemos nada
+        if (newLog.level === LogSeverityLevel.low) return;
+
+        if (newLog.level === LogSeverityLevel.medium) {
+            fs.appendFileSync(this.mediumLogsPath,logAsJson);
+        }else{
+            fs.appendFileSync(this.highLogsPath,logAsJson);
+        }
+
     }
     getLog(severityLevel: LogSeverityLevel): Promise<LogEntity> {
         throw new Error("Method not implemented.");
