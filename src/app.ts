@@ -9,9 +9,9 @@ import { envs } from './config/plugins/envs.plugin';
 })();
 
 function main(){
-    // Server.start();
+    Server.start();
     // console.log(process.env.MAILER_EMAIL);
-    console.log(envs);
+    // console.log(envs);
     
 }
 
