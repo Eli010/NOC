@@ -19,15 +19,18 @@ export class Server{
         console.log('Server started...');
         //mandar email
         const emailService = new EmailService();
-        emailService.sendEmail({
-            to:'leetopa001@gmail.com',
-            subject:'Logs de sistema',
-            htmlBody:`
-                <h3> Logs de sistema - NOC </h3>
-                <p> lorem imsim asdnadnasdwnsadnfasnkjckjfasdwqewq asdwjksj gohlaos  </p>
-                <p> Ver Logs adjuntos </p>
-            `
-        })
+        emailService.sendEmailWithFileSystemLogs(
+            ['eli.tp.system@gmail.com','leetopa001@gmail.com']
+        );
+        // emailService.sendEmail({
+        //     to:'leetopa001@gmail.com',
+        //     subject:'Logs de sistema',
+        //     htmlBody:`
+        //         <h3> Logs de sistema - NOC </h3>
+        //         <p> lorem imsim asdnadnasdwnsadnfasnkjckjfasdwqewq asdwjksj gohlaos  </p>
+        //         <p> Ver Logs adjuntos </p>
+        //     `
+        // })
 
         // console.log(envs.MAILER_EMAIL,envs.MAILER_SECRET_KEY);
 
