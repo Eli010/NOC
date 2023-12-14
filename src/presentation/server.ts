@@ -3,6 +3,7 @@ import { CheckService } from "../domain/use-cases/checks/check-service";
 import { FileSystemDatasource } from "../infraestructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infraestructure/repositories/log.repository.impl";
 import { CronServer } from "./cron/cron-server";
+import { EmailService } from "./email/email-service";
 
 
 //instancias de las implementaciones, file systen datasource
@@ -16,6 +17,18 @@ const fileSystemLogRepository = new LogRepositoryImpl(
 export class Server{
     public static start(){
         console.log('Server started...');
+        //mandar email
+        const emailService = new EmailService();
+        emailService.sendEmail({
+            to:'leetopa001@gmail.com',
+            subject:'Logs de sistema',
+            htmlBody:`
+                <h3> Logs de sistema - NOC </h3>
+                <p> lorem imsim asdnadnasdwnsadnfasnkjckjfasdwqewq asdwjksj gohlaos  </p>
+                <p> Ver Logs adjuntos </p>
+            `
+        })
+
         // console.log(envs.MAILER_EMAIL,envs.MAILER_SECRET_KEY);
 
         //invocamos nuestra class cron server
