@@ -17,11 +17,17 @@ const fileSystemLogRepository = new LogRepositoryImpl(
 export class Server{
     public static start(){
         console.log('Server started...');
+        
+        //todo:activar para enviar
         //mandar email
-        const emailService = new EmailService();
-        emailService.sendEmailWithFileSystemLogs(
-            ['eli.tp.system@gmail.com','leetopa001@gmail.com']
-        );
+        // const emailService = new EmailService(
+        //     fileSystemLogRepository
+        // );
+        // emailService.sendEmailWithFileSystemLogs(
+        //     ['eli.tp.system@gmail.com','leetopa001@gmail.com']
+        // );
+
+
         // emailService.sendEmail({
         //     to:'leetopa001@gmail.com',
         //     subject:'Logs de sistema',
