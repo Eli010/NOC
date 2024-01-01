@@ -16,22 +16,7 @@ async function main(){
         dbName:envs.MONGO_DB_NAME,
     })
 
-    //Crear una colección = tabla, documento = row
-    // const newLog = await LogModel.create({
-    //     message:'Test message desde mongo',
-    //     origin:'App.ts',
-    //     level:'low'
-    // });
-    // //guardamos los datos en nuestro db
-    // await newLog.save();
-    // console.log(newLog);
-    
-    //traer todos los datos
-    const logs = await LogModel.find();
-    console.log(logs);
-    
-
-    //Server.start();
+    Server.start();
     
 }
 
