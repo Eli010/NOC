@@ -1,5 +1,6 @@
 import { envs } from "../config/plugins/envs.plugin";
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infraestructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infraestructure/repositories/log.repository.impl";
 import { CronServer } from "./cron/cron-server";
@@ -12,16 +13,24 @@ const fileSystemLogRepository = new LogRepositoryImpl(
     // new mongoLogDS()
     // new OracleLogDs()
 );
-
+const emailService = new EmailService();
 
 export class Server{
     public static start(){
         console.log('Server started...');
         
+
         //todo:activar para enviar
         //mandar email
+        // new SendEmailLogs(
+        //     emailService,
+        //     fileSystemLogRepository,
+        // ).execute(
+        //     ['eli.tp.system@gmail.com','leetopa001@gmail.com']
+        // )
+
         // const emailService = new EmailService(
-        //     fileSystemLogRepository
+        //     // fileSystemLogRepository
         // );
         // emailService.sendEmailWithFileSystemLogs(
         //     ['eli.tp.system@gmail.com','leetopa001@gmail.com']
