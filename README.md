@@ -5,16 +5,12 @@ con typescript
 # dev
 1. Clonar el archivo .env.template a .env
 2. Configurar las variables de entorno
-
-```
-PORT = 3000
-
-MAILER_EMAIL = 
-MAILER_SECRET = 
-PROD = false
-```
 3. Ejecutar el comando ```npm install```
-4. ejecutar ``` npm run dev ```
+4. Levantar las bases de datos con el comando
+```
+docker compose up -d
+```
 
 ## Obtener gmail key
 
+[google AppPasswords](https://myaccount.google.com/u/0/apppasswords)
