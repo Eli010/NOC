@@ -19,7 +19,7 @@ async function main(){
 
     //POSTGRESSS!!!
     //postgres with prisma create
-    const prisma = new PrismaClient();
+    // const prisma = new PrismaClient();
     // const newLog = await prisma.logModel.create({
     //     data:{
     //         level:'HIGH',
@@ -30,18 +30,17 @@ async function main(){
     // console.log(newLog);
     
     //traer datos con prisma
-    const logs = await prisma.logModel.findMany({
-        where:{
-            level:'MEDIUM'
-        }
-    }
-    );
-
-    console.log(logs);
+    // const logs = await prisma.logModel.findMany({
+    //     where:{
+    //         level:'MEDIUM'
+    //     }
+    // }
+    // );
+    // console.log(logs);
     
 
 
-    // Server.start();
+    Server.start();
     
 }
 
